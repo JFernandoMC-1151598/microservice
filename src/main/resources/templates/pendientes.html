@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Afiliaciones Pendientes</title>
+    <link  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+	crossorigin="anonymous">
+</head>
+<body>
+    <header>
+		<nav class="navbar navbar-expand-md navbar-dark"
+			style="background-color: tomato">
+			<div>
+				<a href="#" class="navbar-brand">Gestion de Deportistas SINPLAVOLEY</a>
+			</div>
+		</nav>
+	</header>
+    <br />   
+    <div class="row">
+		<div class="container">
+            <ul class="navbar-nav">
+                <li><a href="/src/main/resources/templates/pendientes.html" class="nav-link">Listar Afiliaciones Pendientes</a></li>
+            </ul>
+			<br>
+    <table  class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Fecha de Nacimiento</th>
+                <th>Edad</th>
+                <th>Dorsal</th>
+                <th>Posición de Juego</th>
+                <th>Peso</th>
+                <th>Estatura</th>
+                <th>Tipo de Sangre</th>
+                <th>Categoría</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <tr th:each="jugador : ${jugadores}">
+                <td th:text="${jugador.nombre}"></td>
+                <td th:text="${jugador.apellido}"></td>
+                <td th:text="${jugador.fechaNacimiento}"></td>
+                <td th:text="${jugador.edad}"></td>
+                <td th:text="${jugador.dorsal}"></td>
+                <td th:text="${jugador.posicionJuego}"></td>
+                <td th:text="${jugador.peso}"></td>
+                <td th:text="${jugador.estatura}"></td>
+                <td th:text="${jugador.tipoSangre}"></td>
+                <td th:text="${jugador.categoria}"></td>
+                <td>
+                    <form th:action="@{/admin/afiliacion/{id}/aprobar(id=${jugador.id})}" method="post">
+                        <button type="submit">Aprobar</button>
+                    </form>
+                    <form th:action="@{/admin/afiliacion/{id}/rechazar(id=${jugador.id})}" method="post">
+                        <button type="submit">Rechazar</button>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+    </div>
+    </body>
+    </html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar Jugador</title>
+    <link  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+	crossorigin="anonymous">
+</head>
+<body>
+    <header>
+		<nav class="navbar navbar-expand-md navbar-dark" style="background-color:tomato">
+			<div>
+				<a href="#" class="navbar-brand"> Gestion de Jugadores </a>
+			</div>
+		</nav>
+	</header>
+    <br>
+    <div class="container col-md-5">
+		<div class="card">
+			<div class="card-body">
+    <h1>Registrar Jugador</h1>
+    <form id="registrationForm" action="/registrar" method="post" onsubmit="return validateForm()">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required><br>
+        <span class="error" id="nombreError"></span><br>
+        
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" name="apellido" required><br>
+        <span class="error" id="apellidoError"></span><br>
+        
+        <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+        <input type="date" id="fechaNacimiento" name="fechaNacimiento" required><br>
+        <span class="error" id="fechaNacimientoError"></span><br>
+        
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" name="edad" required><br>
+        <span class="error" id="edadError"></span><br>
+        
+        <label for="dorsal">Dorsal:</label>
+        <input type="text" id="dorsal" name="dorsal" required><br>
+        <span class="error" id="dorsalError"></span><br>
+        
+        <label for="posicionJuego">Posición de Juego:</label>
+        <input type="text" id="posicionJuego" name="posicionJuego" required><br>
+        <span class="error" id="posicionJuegoError"></span><br>
+        
+        <label for="peso">Peso:</label>
+        <input type="number" id="peso" name="peso" required><br>
+        <span class="error" id="pesoError"></span><br>
+        
+        <label for="estatura">Estatura:</label>
+        <input type="number" id="estatura" name="estatura" required><br>
+        <span class="error" id="estaturaError"></span><br>
+        
+        <label for="tipoSangre">Tipo de Sangre:</label>
+        <input type="text" id="tipoSangre" name="tipoSangre" required><br>
+        <span class="error" id="tipoSangreError"></span><br>
+        
+        <label for="categoria">Categoría:</label>
+        <input type="text" id="categoria" name="categoria" required><br>
+        <span class="error" id="categoriaError"></span><br>
+        
+        <input type="submit" value="Registrar">
+    </form>
+</div>
+</div>
+</div>
+</body>
+</html>
+    <script>
+        function validateForm() {
+            let formIsValid = true;
+
+            // Validaciones...
+
+            return formIsValid;
+        }
+
+        // Función para mostrar ventana emergente de registro exitoso y vaciar formulario
+        function showSuccessMessage() {
+            alert("¡Registro exitoso!");
+       
+        }
+      
+        // Agregar evento de submit al formulario
+        document.getElementById("registrationForm").addEventListener("submit", function(event) {
+            // Validar el formulario
+            let formIsValid = validateForm();
+
+            // Si el formulario es válido, mostrar mensaje de registro exitoso
+            if (formIsValid) {
+                showSuccessMessage();
+            } else {
+                // Evitar el envío del formulario si no es válido
+                event.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>
